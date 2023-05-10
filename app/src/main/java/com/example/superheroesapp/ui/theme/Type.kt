@@ -8,6 +8,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.example.superheroesapp.R
 
+val CabinBold = FontFamily(
+    Font(R.font.cabin_bold)
+)
+
+val CabinRegular = FontFamily(
+    Font(R.font.cabin_regular)
+)
+
 // Set of Material typography styles to start with
 val Typography = Typography(
     bodyLarge = TextStyle(
