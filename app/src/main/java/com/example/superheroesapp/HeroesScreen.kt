@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.sizeIn
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
@@ -82,11 +83,12 @@ fun HeroesList(
 ) {
     LazyColumn {
         itemsIndexed(heroes) { index, hero ->
-            HeroItem(hero = hero,
-            modifier = Modifier.padding(vertical = 16.dp, horizontal = 8.dp))
+            HeroItem(
+                hero = hero,
+                modifier = Modifier.padding(vertical = 16.dp, horizontal = 8.dp)
+            )
         }
     }
-
 }
 
 @Preview(showBackground = true)
@@ -104,12 +106,12 @@ fun HeroItemPreview() {
 
 @Preview(showBackground = true)
 @Composable
-fun HeroesList() {
+fun HeroesListPreview() {
     SuperheroesTheme() {
         Surface(color = MaterialTheme.colorScheme.background) {
             HeroesList(heroes = HeroesRepository.heroes)
         }
-        
+
     }
 }
     
