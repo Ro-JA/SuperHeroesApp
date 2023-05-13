@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
@@ -14,6 +15,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.superheroesapp.model.HeroesRepository
 import com.example.superheroesapp.ui.theme.SuperheroesTheme
 
 class MainActivity : ComponentActivity() {
@@ -36,10 +38,14 @@ class MainActivity : ComponentActivity() {
 }
 
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SuperHeroesApp() {
-    
-
+    Scaffold( modifier = Modifier.fillMaxSize(),
+        topBar = { HeroesTopBarApp() }) {
+        val heroes = HeroesRepository.heroes
+        HeroesList(heroes = heroes, Modifier.padding(it))
+    }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -60,6 +66,6 @@ fun HeroesTopBarApp(modifier: Modifier = Modifier) {
 @Composable
 fun HeroesPreview() {
     SuperheroesTheme {
-      SuperHeroesApp()
+        SuperHeroesApp()
     }
 }
